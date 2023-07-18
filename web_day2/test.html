@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>弹出框测试</title>
+    </head>
+    <body style="text-align: center;">
+        <h1>弹出框测试</h1>
+        <button onclick="test_1()">警告框</button>
+        <button onclick="test_2()">确认框</button>
+        <button onclick="test_3()">提示框</button>
+        <p id="demo"></p>
+        选择省/市<select name = 'sheng',id="1">
+            <option value="bj">北京</option>
+            <option value="js">江苏</option>
+            <option value="gd">广东</option>
+
+        </select>
+
+
+    </body>
+    <script>
+
+        function test_1(){
+            alert(("这是一个警告框"));
+        }
+
+        function test_2(){
+            test2 = confirm("这是一个确认框，确定返回true，取消返回false");
+            document.getElementById("demo").innerHTML = test2;
+        }
+
+        function test_3(){
+            var test3 = prompt("这是一个提示框，确定返回输入值，取消返回Null","输入框内默认文本");
+            document.getElementById("demo").innerHTML = test3;
+        }
+
+    </script>
+</html>
