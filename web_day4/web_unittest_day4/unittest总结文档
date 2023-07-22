@@ -1,0 +1,10 @@
+unittest文档
+
+一、unittest案例编写规则
+1、创建以test开头的.py文件
+2、定义以Test开头的测试类，并且继承unittest.TestCase类
+3、定义以test开头的测试方法，一个方法就是一条案例
+
+二、测试夹具
+1、案例级别：setUp（前置）、tearDown（后置） 每条案例执行前后都会执行的，执行次数有案例条数决定
+2、类级别：setUpClass（前置）、tearDownClass（后置） 测试类执行前后执行的，只执行一次
