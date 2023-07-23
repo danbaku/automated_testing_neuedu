@@ -1,0 +1,31 @@
+unittest总结
+
+一、案例编写
+1、新增test开头的.py文件
+2、定义Test开头的测试类，并且继承unittest.TestCase
+3、定义test开头的测试案例方法
+4、编写案例逻辑
+    1）准备案例数据（ddt读取案例数据并生成案例）
+    2)进行测试：调用被测函数/调用被测接口/代码编写页面操作步骤
+    3）使用ddt中的预期结果，与测试的实际结果进行断言
+        try:
+            断言语句
+        except:
+            记录日志/记录结果
+            抛出异常
+        else:
+            记录日志/记录结果
+
+二、测试案例批量执行
+1、新建文件执行文件
+2、导入
+import unittest
+from unittestreport import TestRunner
+3、执行案例，
+suite = unittest.defaultTestLoader.discover(案例路径)
+runner = TestRunner(suite)
+runner.run()
+
+三、测试夹具
+案例级别  前置  后置
+类级别  前置  后置
