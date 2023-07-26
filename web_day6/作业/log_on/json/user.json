@@ -1,0 +1,10 @@
+[
+    {
+        "uname": "cs",
+        "uid": 10001,
+        "uphone": 2147483647,
+        "upasswd": 10001,
+        "ugrade": 1,
+        "ustate": "普通用户"
+    }
+]

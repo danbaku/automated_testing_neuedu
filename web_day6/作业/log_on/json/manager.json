@@ -1,0 +1,42 @@
+[
+    {
+        "admin": "zhx",
+        "name": "朱浩翔",
+        "id": "10001",
+        "grade": "6",
+        "passwd": "19991",
+        "state": "管理员"
+    },
+    {
+        "admin": "lwj",
+        "name": "李伟杰",
+        "id": "10002",
+        "grade": "6",
+        "passwd": "19992",
+        "state": "管理员"
+    },
+    {
+        "admin": "xmy",
+        "name": "夏明宇",
+        "id": "10003",
+        "grade": "6",
+        "passwd": "19993",
+        "state": "管理员"
+    },
+    {
+        "admin": "zmk",
+        "name": "张明康",
+        "id": "10004",
+        "grade": "6",
+        "passwd": "19994",
+        "state": "管理员"
+    },
+    {
+        "admin": "fl",
+        "name": "方凌",
+        "id": "10005",
+        "grade": "6",
+        "passwd": "19995",
+        "state": "管理员"
+    }
+]

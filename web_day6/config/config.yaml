@@ -1,0 +1,13 @@
+# - 开头是列表，有键值的是字典；- 或 :后面需要加空格
+database:
+    host: 127.0.0.1
+    user: root
+    pwd: 123456789qwe
+    db: test_kexun
+    port: 3306
+testevn:
+    url: http://www.baidu.com
+    aaa:
+      - A
+      - 123
+      - aaa
