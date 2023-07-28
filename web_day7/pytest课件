@@ -1,0 +1,60 @@
+pytest
+一、安装  pip install pytest
+二、unittest与pytest对比
+    1、unittest编写案例一定需要测试类，继承unittest.TestCase
+       pytest编写案例，没有硬性要求，即可使用类，也可以不用类单独写函数，而且类不需要继承
+    2、批量运行时，unittest必须是指定案例路径，pytest不需要，会自动寻找
+    3、unittest是python的官方库，兼容性和稳定性更好，pytest是第三方库,某些python版本不兼容pytest
+    4、pytest可以通过pytest.ini配置需要执行的案例便签，执行更加灵活（大优点）
+    5、pytest有失败重运行机制，unittest没有
+    6、pytest的前后置比unittest更加灵活
+    7、pytest完美兼容unittest的案例
+
+三、pytest编写
+    1、pytest执行案例默认识别案例规则与unittest一致
+    2、可以在pytest.ini文件中自行定义识别py文件、测试类以及测试方法名称
+        python_files =
+        python_functions =
+        python_classes =
+    3、pytest.ini文件，文件名，文件格式，不允许变动
+
+四、pytest标签
+    1、使用标签之前，需要在pytest.ini文件中初始化，markers =
+    2、给案例加标签，在案例方法的上面一行加@pytest.mark.标签名，通过标签对案例分类
+    3、一个案例可以加多个标签
+    4、在案例批量执行的时候，根据标签，执行一个或多个标签下的案例
+        pytest.main(['-m','level1'])
+    扩展：通过逻辑运算符（and\or\not），组合多个标签，达到需要执行的结果
+        pytest.main()执行可以识别到所有案例
+        pytest.main(['-m','level1'])执行所有有level1标签的案例
+        pytest.main(['-m','not level1'])执行没有level1标签的案例
+        pytest.main(['-m','level1 and  level2'])执行 同时有level1和level2标签的案例
+        pytest.main(['-m','level1 or  level2'])执行 有level1或者有level2标签的案例
+    5、内置标签
+       skip：跳过执行
+       skipif：通过条件判断是否跳过,条件满足则跳过案例，不满足则不跳过案例
+
+四、pytest的前后置
+    方式一：
+        unittest前后置步骤编写方式
+
+    方式二：pytest.fixture（测试夹具）
+    定义：在需要成为前后置方法的方法@pytest.fixture()
+         pytest的前后步骤需要放在一个方法中，用yield区分;
+    引用：
+        1、在需要引用的案例所在文件中先导入前后置方法
+        2、在案例方法中，加入参数为前后置方法的名称
+        3、@pytest.fixture(autouse=True)参数中把autouse设置为True,
+            那么只要导入该方法，案例文件中所的案例自动应用前后置方法，请谨慎使用
+        4、@pytest.fixture(scope=function)，scope参数为前后置的方法作用范围，"function"
+        (default), "class", "module","package" or "session".
+        5、前后置方法，可以直接统一放到conftest.py文件中（文件名固定），案例调用前后置时，直接调用，不需要导入
+
+五、案例执行
+        1、无差别执行pytest.main()
+        2、通过标签筛选执行，pytest.main(['-m','level1'])
+        3、通过路径筛选去执行，
+            pytest.main([目录的路径])
+            pytest.main([文件的路径])
+            pytest.main([文件的路径::类名])
+            pytest.main([文件的路径::类名::方法名])
